@@ -7,10 +7,6 @@ infrastructureConfig:
   containerOrchestrationEngine: None
   parameters:
     - JDK : ORACLE_JDK8
-  includes:
-     - CentOS
-     - mysql
-     - ORACLE_JDK8
   provisioners:
     - name: prod-wso2-ei-scenario-deployment
       description: Provision Infra for running intg tests
@@ -18,7 +14,7 @@ infrastructureConfig:
         - name: 'prod-wso2-ei-scenario-deployment'
           description: ''
           type: CLOUDFORMATION
-          file: deployment/ei-single-node.yaml
+          file: CF_script/integrator-ha.yaml
           inputParameters:
             parseInfrastructureScript: false
             KeyPairName: "deployment-prod"
